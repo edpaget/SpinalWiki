@@ -14,6 +14,8 @@ task 'dependencies', 'Download required libraries', (options) ->
     backbone: 'http://backbonejs.org/backbone.js' 
     jquery: 'http://code.jquery.com/jquery-1.7.2.js'
     underscore: 'http://underscorejs.org/underscore.js' 
+    backboneLocalStorage: 'https://raw.github.com/jeromegn/Backbone.localStorage/master/backbone.localStorage.js'
+
 
   testDependencies = 
     # jasmine installation process is too complicated at the moment
@@ -24,6 +26,7 @@ task 'dependencies', 'Download required libraries', (options) ->
     backbone: 'http://backbonejs.org/backbone-min.js'
     jquery: 'http://code.jquery.com/jquery-1.7.2.min.js'
     underscore: 'http://documentcloud.github.com/underscore/underscore-min.js'
+    backboneLocalStorage: 'https://raw.github.com/jeromegn/Backbone.localStorage/master/backbone.localStorage-min.js'
 
   downloadDependencies = (name, url, dir='js/vendor') ->
     console.log "Downloading " + name + ' from  ' + url

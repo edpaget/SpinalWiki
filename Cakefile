@@ -1,7 +1,11 @@
 {exec} = require 'child_process'
 fs     = require 'fs'
 
+option '-b', '--browser [BROWSER_NAME]', 'set browser for running specs' 
+option '-d', '--directory [DIRECTORY_NAME]', 'specify a directory to build compile coffescript files'
 option '-e', '--environment [ENVIRONMENT_NAME]', 'set environment'
+option '-o', '--output [OUTPUT_DIR]', 'specifiy the file the coffescript will compile to'
+
 task 'dependencies', 'Download required libraries', (options) ->
 
   options.environment or= 'development'
@@ -34,15 +38,12 @@ task 'dependencies', 'Download required libraries', (options) ->
   else if options.enviornment == 'production'
     downloadDependencies name, url for name, url  of prodDependencies
 
-option '-b', '--browser [BROWSER_NAME]', 'set browser for running specs' 
 task 'spec', 'Run Jasmine Specs in specified browser (Firefox default)', (options) ->
   options.browser or= 'Firefox'
   exec "open -a #{options.browser} SpecRunner.html", (err, stdout, stderr) ->
     throw err if err
     console.log stdout + stderr
 
-option '-d', '--directory [DIRECTORY_NAME]', 'specify a directory to build compile coffescript files'
-option '-o', '--output [OUTPUT_DIR]', 'specifiy the file the coffescript will compile to'
 task 'build', 'Concat and Compile all .coffee files in a directory', (options) ->
   options.directory or= 'coffee'
   options.output or= 'js/App.js'

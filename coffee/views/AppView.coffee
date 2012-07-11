@@ -1,1 +1,1 @@
-class WebChess.Views.AppView extends Backbone.View
+class SpinalWiki.Views.AppView extends Backbone.View

@@ -6,7 +6,7 @@
     Views: {},
     init: function() {
     }
-  }
+  };
 
   $(document).ready(function() {
     SpinalWiki.init()

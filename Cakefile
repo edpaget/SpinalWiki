@@ -93,3 +93,30 @@ task 'build:spec', 'builds jasmine spec files', (options) ->
   options.directory = 'spec'
   options.output = 'js/spec/Spec.js'
   invoke 'build'
+
+task 'build:models', 'builds all backbone models', (options) ->
+  options.directory = 'coffee/models'
+  options.output = 'js/Models.js'
+  invoke 'build'
+
+task 'build:collections', 'builds all backbone collections', (options) ->
+  options.directory = 'coffee/collections'
+  options.output = 'js/Collections.js'
+  invoke 'build'
+
+task 'build:views', 'builds all backbone views', (options) ->
+  options.directory = 'coffee/views'
+  options.output = 'js/Views.js'
+  invoke 'build'
+
+task 'build:routers', 'builds all backbone routers', (options) ->
+  options.directory = 'coffee/routers'
+  options.output = 'js/Routers.js'
+  invoke 'build'
+
+task 'build:all', 'builds both specs and coffeescript', ->
+  invoke 'build:spec'
+  invoke 'build:models'
+  invoke 'build:collections'
+  invoke 'build:views'
+  invoke 'build:routers'

@@ -1,0 +1,1 @@
+class WebChess.Views.AppView extends Backbone.View

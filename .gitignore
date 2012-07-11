@@ -5,3 +5,6 @@ js/spec/vendor/*
 # Compiled Coffeescript
 js/App.js
 js/spec/Spec.js
+
+# Temp Files
+temp/*

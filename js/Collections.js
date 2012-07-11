@@ -12,6 +12,14 @@
 
     Wiki.prototype.model = SpinalWiki.Models.Page;
 
+    Wiki.prototype.localStorage = new Store('SpinalWiki');
+
+    Wiki.prototype.category = function(name) {
+      return this.filter(function(page) {
+        return page.get('category') === name;
+      });
+    };
+
     return Wiki;
 
   })(Backbone.Collection);

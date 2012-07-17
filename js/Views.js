@@ -14,4 +14,16 @@
 
   })(Backbone.View);
 
+  SpinalWiki.Views.Page = (function(_super) {
+
+    __extends(Page, _super);
+
+    function Page() {
+      Page.__super__.constructor.apply(this, arguments);
+    }
+
+    return Page;
+
+  })(Backbone.View);
+
 }).call(this);

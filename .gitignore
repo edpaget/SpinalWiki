@@ -5,6 +5,10 @@ js/spec/vendor/*
 # Compiled Coffeescript
 js/App.js
 js/spec/Spec.js
+js/Views.js
+js/Router.js
+js/Models.js
+js/Collections.js
 
 # Temp Files
 temp/*

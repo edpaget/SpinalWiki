@@ -23,6 +23,20 @@
   <script type="text/javascript" src="js/spec/SpecHelper.js"></script>
   <script type="text/javascript" src="js/spec/Spec.js"></script>
 
+  <!-- Templates! -->
+  <script type="text/template" id="page_template">
+    <div class="page">
+      <h1><%= title %></h1>
+      <p><%= body %></p>
+      <ul>
+        <li><a href="edit">edit</a></li>
+        <li><a href="delete">delete</a></li>
+        <li><a href="links">all links</a><li>
+      </ul>
+      <textarea cols="60" rows="120" class="edit"></textarea>
+    </div>
+  </script>
+
   <!-- include source files here... -->
   <script type="text/javascript" src="js/SpinalWiki.js"></script>
   <script type="text/javascript" src="js/Models.js"></script>
@@ -30,8 +44,6 @@
   <script type="text/javascript" src="js/Views.js"></script>
   <script type="text/javascript" src="js/Routers.js"></script>
 
-  <!-- Templates! -->
-  <script type="text/template" id="page-template" src="js/templates/page.ejs"></script>
 
   <script type="text/javascript">
     (function() {

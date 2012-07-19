@@ -22,6 +22,43 @@
       Page.__super__.constructor.apply(this, arguments);
     }
 
+    Page.prototype.template = _.template($('#page_template').html());
+
+    Page.prototype.events = {
+      "dbclick .article": "edit",
+      "blur .edit": "close"
+    };
+
+    Page.prototype.initialize = function() {
+      if (this.model) this.model.bind('change', this.render, this);
+      if (this.model) return this.model.bind('destory', this.remove, this);
+    };
+
+    Page.prototype.render = function() {
+      this.$el.html(this.template(this.model.toJSON()));
+      this.input = this.$('.edit');
+      return this;
+    };
+
+    Page.prototype.edit = function() {
+      this.$el.addClass('editing');
+      return this.input.focus();
+    };
+
+    Page.prototype.close = function() {
+      var body;
+      body = this.input.val();
+      if (!body) this.clear();
+      this.model.save({
+        body: body
+      });
+      return this.$el.removeClass('editing');
+    };
+
+    Page.prototype.clear = function() {
+      return this.model.destroy();
+    };
+
     return Page;
 
   })(Backbone.View);

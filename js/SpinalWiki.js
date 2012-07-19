@@ -5,7 +5,7 @@
     Routers: {},
     Views: {},
     init: function() {
-      router = new SpinalWiki.Routers.Router
+      this.router = new SpinalWiki.Routers.Router
       Backbone.history.start({pushState:true})
     }
   };

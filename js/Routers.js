@@ -10,6 +10,24 @@
       Router.__super__.constructor.apply(this, arguments);
     }
 
+    Router.prototype.routes = {
+      "page/:id": "page",
+      "/": "index"
+    };
+
+    Router.prototype.initialize = function(options) {
+      return this.appView = options.appView;
+    };
+
+    Router.prototype.index = function() {
+      return window.location.hash = "#page/0";
+    };
+
+    Router.prototype.page = function(id) {
+      if (this.appView.page) this.appView.removePage;
+      return this.appView.showPage(id);
+    };
+
     return Router;
 
   })(Backbone.Router);

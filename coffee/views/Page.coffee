@@ -3,8 +3,9 @@ class SpinalWiki.Views.Page extends Backbone.View
   template: _.template($('#page_template').html())
 
   events:
-    "dbclick .article" : "edit"
-    "blur .edit"       : "close"
+    "dbclick .page" : "edit"
+    "blur .edit"    : "close"
+    "click a.edit"  : "edit"
 
   initialize: ->
     @model.bind 'change', this.render, this if @model
@@ -17,6 +18,7 @@ class SpinalWiki.Views.Page extends Backbone.View
 
   edit: ->
     @$el.addClass 'editing'
+    @input.val(@model.get('body'))
     @input.focus()
 
   close: ->

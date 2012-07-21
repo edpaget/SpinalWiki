@@ -12,3 +12,7 @@ js/Collections.js
 
 # Temp Files
 temp/*
+
+# Server Files for Development
+server.js
+node_modules/*

@@ -6,9 +6,10 @@ class SpinalWiki.Views.Page extends Backbone.View
     "dbclick .page" : "edit"
     "blur .edit"    : "close"
     "click a.edit"  : "edit"
+    "keypress .edit": "saveText"
 
   initialize: ->
-    @model.bind 'change', this.render, this if @model
+    @model.bind 'change', this.updateText, this if @model
     @model.bind 'destory', this.remove, this if @model
 
   render: ->
@@ -24,8 +25,15 @@ class SpinalWiki.Views.Page extends Backbone.View
   close: ->
     body = @input.val()
     unless body then this.clear()
-    @model.save { body: body}
+    @model.save { body: body }
     @$el.removeClass 'editing' 
+
+  saveText: ->
+    body = @input.val()
+    @model.save { body: body }
 
   clear: ->
     @model.destroy()
+
+  updateText: ->
+    @$el.find('.page').html(@model.get('parsedBody'))

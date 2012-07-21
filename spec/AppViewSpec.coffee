@@ -7,7 +7,7 @@ describe 'SpinalWiki.Views.AppView', ->
     expect(appView).not.toBeNull()
 
   beforeEach ->
-    @wiki = new SpinalWiki.Collections.Wiki [{id:12, title:'Test', body:'This is only a test.'}]
+    @wiki = new SpinalWiki.Collections.Wiki [{id:12, title:'Test', body:'This is only a test.', parsedBody:'<p>This is only a test.</p>'}]
     @appView = new SpinalWiki.Views.AppView { collection: @wiki }
     @page = new SpinalWiki.Views.Page { model: @wiki.get(12) }
 

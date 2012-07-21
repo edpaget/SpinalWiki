@@ -3,7 +3,7 @@ describe 'SpinalWiki.Views.Page', ->
     expect(SpinalWiki.Views.Page).toBeDefined
 
   beforeEach ->
-    @wiki = new SpinalWiki.Collections.Wiki [{ id: 12, title: "Test", body: "This is only a test" }]
+    @wiki = new SpinalWiki.Collections.Wiki [{ id: 12, title: "Test", body: "This is only a test", parsedBody: "<p>This is only a test</p>"}]
     @pageView = new SpinalWiki.Views.Page { model: @wiki.get(12) }
   
   it 'should be instantiable', ->
@@ -39,3 +39,13 @@ describe 'SpinalWiki.Views.Page', ->
 
     it 'should remove the editing class', ->
       expect($(@pageView.el).attr('class')).not.toEqual 'editing'
+
+  describe '#saveText', ->
+    beforeEach ->
+      @pageView.render()
+      @pageView.edit()
+      @pageView.input.val('test')
+      @pageView.saveText()
+
+    it 'should updat the model from captured text', ->
+      expect(@pageView.model.get('body')).toEqual 'test'

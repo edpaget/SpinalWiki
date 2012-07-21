@@ -6,7 +6,7 @@ js/spec/vendor/*
 js/App.js
 js/spec/Spec.js
 js/Views.js
-js/Router.js
+js/Routers.js
 js/Models.js
 js/Collections.js
 

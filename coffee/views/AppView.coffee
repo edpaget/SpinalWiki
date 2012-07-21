@@ -1,7 +1,16 @@
 class SpinalWiki.Views.AppView extends Backbone.View
+  initialize: ->
+    @collection.fetch() if @collection
+
   showPage: (pageId) ->
-    @page = new SpinalWiki.Views.Page {model: @collection.get(pageId)}
+    pageModel = @collection.get pageId
+    if !pageModel
+      edit = true
+      pageModel = new SpinalWiki.Models.Page { id: pageId, title: "New Page", body: "Your Test Here" }
+      @collection.add pageModel
+    @page = new SpinalWiki.Views.Page {model: pageModel}
     @$el.append(@page.render().el)
+    @page.edit() if edit
 
   removePage: ->
     @page.unbind()

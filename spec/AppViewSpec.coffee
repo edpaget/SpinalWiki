@@ -22,6 +22,11 @@ describe 'SpinalWiki.Views.AppView', ->
       pageTitle = $(@appView.el).find('h1')
       expect(pageTitle.text()).toEqual 'Test'
 
+    it 'should open with the editor if the id is not in the wiki', ->
+      @appView.removePage()
+      @appView.showPage 13
+      expect($(@appView.el).find('div').attr('class')).toEqual 'editing'
+
   describe '#removePage', ->
     beforeEach ->
       @appView.showPage 12

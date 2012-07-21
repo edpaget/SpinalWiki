@@ -5,8 +5,10 @@
     Routers: {},
     Views: {},
     init: function() {
-      this.router = new SpinalWiki.Routers.Router
-      Backbone.history.start({pushState:true})
+      wiki = new SpinalWiki.Collections.Wiki()
+      appView = new SpinalWiki.Views.AppView({collection: wiki, el: "#main"})
+      router = new SpinalWiki.Routers.Router({appView: appView})
+      Backbone.history.start()
     }
   };
 

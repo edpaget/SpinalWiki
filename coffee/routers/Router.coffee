@@ -2,7 +2,7 @@ class SpinalWiki.Routers.Router extends Backbone.Router
 
   routes:
     "page/:id"   : "page"
-    "/"          : "index"
+    ""          : "index"
 
   initialize: (options) ->
     @appView = options.appView

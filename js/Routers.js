@@ -12,7 +12,7 @@
 
     Router.prototype.routes = {
       "page/:id": "page",
-      "/": "index"
+      "": "index"
     };
 
     Router.prototype.initialize = function(options) {

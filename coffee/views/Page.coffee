@@ -14,7 +14,7 @@ class SpinalWiki.Views.Page extends Backbone.View
 
   render: ->
     @$el.html(@template(@model.toJSON()))
-    @input = this.$('.edit')
+    @input = this.$('textarea.edit')
     return this
 
   edit: ->

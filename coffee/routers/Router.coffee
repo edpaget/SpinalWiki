@@ -11,5 +11,5 @@ class SpinalWiki.Routers.Router extends Backbone.Router
     window.location.hash = "#page/0"
 
   page: (id) ->
-    @appView.removePage if @appView.page 
+    @appView.removePage() if @appView.page 
     @appView.showPage id

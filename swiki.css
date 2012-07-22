@@ -1,22 +1,47 @@
 body {
   font-family: Helvetica, sans-serif;
-  font-size: 12pt;
-  line-height: 16pt;
+  font-size: 10pt;
+  line-height: 14pt;
+  background-color: #E0FFFF;
 }
 
-#main {
+#container {
   margin-left: auto;
   margin-right: auto;
-  width: 960px;
+  width: 760px;
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 40px;
+  -webkit-box-shadow: rgba(0, 0,rgba 0, 0.2) 0 2px 6px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;6px-ms-box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
+  -o-box-shadow: rgba(shadow0, 0, 0, 0.2) 0 2px 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;6px-webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;radius-ms-border-radius: 0 0 5px 5px;
+  -o-border-radius: 0 0 5px 5px;
+  borderer-radius: 0 0 5px 5px;
 }
 
 div.page  {
-  margin-left: auto;
-  margin-right: auto;
   max-width: 360px;
 }
 
+ul#actions {
+}
+
+#clear {
+  clear: both;
+}
+
+.editing div.page {
+  float: right;
+}
+
+h1.title {
+  font-size: 36pt;
+}
+
 textarea.edit {
+  margin: 10px;
   display: none;
   float: left;
 }
@@ -26,11 +51,9 @@ textarea.edit {
 }
 
 #footer {
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 10pt;
-  line-height: 14pt;
-  width: 960px;
+  font-size: 8pt;
+  line-height: 12pt;
+  text-align: center;
 }
 
 ul li {

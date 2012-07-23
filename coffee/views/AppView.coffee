@@ -7,7 +7,7 @@ class SpinalWiki.Views.AppView extends Backbone.View
       page.get('title') == pageTitle
     if !pageModel
       edit = true
-      pageModel = new SpinalWiki.Models.Page { title: pageTitle, body: "Your Test Here", parsedBody: "<p>Your Test Here</p>" }
+      pageModel = new SpinalWiki.Models.Page { title: pageTitle, body: "Your Text Here" }
       @collection.add pageModel
     @page = new SpinalWiki.Views.Page {model: pageModel}
     @$el.append(@page.render().el)

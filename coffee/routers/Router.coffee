@@ -8,8 +8,8 @@ class SpinalWiki.Routers.Router extends Backbone.Router
     @appView = options.appView
 
   index: ->
-    window.location.hash = "#page/0"
+    window.location.hash = "#page/Main"
 
-  page: (id) ->
+  page: (title) ->
     @appView.removePage() if @appView.page 
-    @appView.showPage id
+    @appView.showPage title

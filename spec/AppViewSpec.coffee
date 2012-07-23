@@ -14,7 +14,7 @@ describe 'SpinalWiki.Views.AppView', ->
 
   describe '#showPage', ->
     beforeEach ->
-      @appView.showPage 12
+      @appView.showPage 'Test'
 
     it 'should render the page into an instance variable', ->
       expect(@appView.page.model.get('title')).toEqual @page.model.get('title')
@@ -23,14 +23,14 @@ describe 'SpinalWiki.Views.AppView', ->
       pageTitle = $(@appView.el).find('h1')
       expect(pageTitle.text()).toEqual 'Test'
 
-    it 'should open with the editor if the id is not in the wiki', ->
+    it 'should open with the editor if the title is not in the wiki', ->
       @appView.removePage()
-      @appView.showPage 13
+      @appView.showPage "Test 12"
       expect($(@appView.el).find('div').attr('class')).toEqual 'editing'
 
   describe '#removePage', ->
     beforeEach ->
-      @appView.showPage 12
+      @appView.showPage "Test"
       @appView.removePage()
 
     it 'should set the page instance variable to NULL', ->

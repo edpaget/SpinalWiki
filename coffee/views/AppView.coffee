@@ -2,11 +2,12 @@ class SpinalWiki.Views.AppView extends Backbone.View
   initialize: ->
     @collection.fetch() if @collection
 
-  showPage: (pageId) ->
-    pageModel = @collection.get pageId
+  showPage: (pageTitle) ->
+    pageModel = @collection.find (page) ->
+      page.get('title') == pageTitle
     if !pageModel
       edit = true
-      pageModel = new SpinalWiki.Models.Page { id: pageId, title: "New Page", body: "Your Test Here", parsedBody: "<p>Your Test Here</p>" }
+      pageModel = new SpinalWiki.Models.Page { title: pageTitle, body: "Your Test Here", parsedBody: "<p>Your Test Here</p>" }
       @collection.add pageModel
     @page = new SpinalWiki.Views.Page {model: pageModel}
     @$el.append(@page.render().el)
